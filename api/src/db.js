@@ -13,14 +13,14 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
 DogsModel(sequelize)
 TempModel(sequelize)
 
-const { Dogs, Temperaments } = sequelize.models;
+const { Dog, Temperament } = sequelize.models;
 
-Dogs.belongsToMany(Temperaments, {through: "dogs_temperamentos"});
-Temperaments.belongsToMany(Dogs, {through: "dogs_temperamentos"});
+Dog.belongsToMany(Temperament, {through: "dogs_temperaments"});
+Temperament.belongsToMany(Dog, {through: "dogs_temperaments"});
 
 module.exports = {
 ...sequelize.models,
-Dogs,
-Temperaments,
+Dog,
+Temperament,
 conn: sequelize,
 };

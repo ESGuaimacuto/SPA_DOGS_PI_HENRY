@@ -12,10 +12,10 @@ const allTemperaments = require("../controllers/temperamentos")
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+router.get("/dogs/name", nameDogs)
 router.get("/dogs", allDogs)
 router.post("/dogs", crearDog)
-router.get("/dogs/:id", razas) //ID de la raza, cambiar 
-router.get("/dogs/name", nameDogs)
+router.get("/dogs/:id", razas) //ID de la raza 
 router.get("/temperaments", allTemperaments)
 // router.put()
 // router.delete("/dogs/:idRaza", deleteDog)

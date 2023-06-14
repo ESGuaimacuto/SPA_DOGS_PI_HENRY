@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define('Dogs', {
+  sequelize.define('Dog', {
     id:{
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -14,27 +14,30 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    imagen:{
+    image:{
       type: DataTypes.STRING,
       allowNull: true,
 
     },
-    altura:{
+    height:{
       type: DataTypes.INTEGER,
       allowNull: false,
 
     },
-    peso:{
+    weight:{
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    añosDeVida: {
+    life_span: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
     created: {
       type: DataTypes.BOOLEAN,
       defaultValue: true
-    }
+    
+    },
+  },{
+    timestamps: false
   });
 };

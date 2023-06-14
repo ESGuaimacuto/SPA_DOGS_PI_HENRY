@@ -1,24 +1,44 @@
 const {Dogs} = require("../db")
 const axios = require("axios")
-const {YOUR_API_KEY} = process.env
-const URL = "https://api.thedogapi.com/v1/breeds/search?q={raza_perro}"
+const {YOUR_API_KEY, URL} = process.env
 
 
  const razas = async (req, res) => {
+    console.log("Entre al controller de busqueda por ID");
+    
     try {
         const {id} = req.params;
         if(!id) throw Error("Información insuficiente")
-        if(id === error) throw Error("Id no existente")
-        
-        const allRazas = await Dogs.findOne({where:{id}})
-
-        const razasAPI = await axios.get(`${URL}/${id}/$?api_key=${YOUR_API_KEY}`)
-
-        let combinacionDB_API = {
-            allRazas,
-            razasAPI
-        }
-        return res.status(200).json(combinacionDB_API)
+        //if() return res.status(400).send("Número del indentificador incorrecto o inexistente")
+        if(id) {
+            const {name, height, weight, life_span, image, temperament} = (await axios.get(`${URL}/${id}`)).data;
+            
+            const razasAPI = {
+                id,
+                name,
+                height: height.metric, 
+                weight: weight.metric, 
+                life_span, 
+                image, 
+                created: false, 
+                temperament
+            };
+            
+          const responseDB = await Dogs.findAll({where:{id}},{
+                attributes: [
+                    "id",
+                    "name",
+                    "height",
+                    "weight",
+                    "life_span",
+                    "image",
+                    "created",
+                    "temperament"
+                ]
+            }
+            );
+            return res.status(200).json([razasAPI, ...responseDB])
+        };      
 
     } catch (error) {
         return res.status(500).send(error.message)

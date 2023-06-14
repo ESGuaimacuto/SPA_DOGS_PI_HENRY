@@ -26,4 +26,4 @@ const cleanArray = (arr) =>
     };
   });
 
-  module.exports=cleanArray;
+  module.exports = cleanArray;

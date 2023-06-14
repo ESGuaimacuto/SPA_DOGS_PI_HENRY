@@ -1,17 +1,33 @@
-const {Temperaments} = require("../db");
+const {Temperament} = require("../db");
+const axios = require("axios")
+const {YOUR_API_KEY , URL} = process.env
 
 const allTemperaments = async (req, res) => {
     try {
-        if(req.query)  return res.status(200).json(await Temperaments.findAll())
+        if(req.query) {
+            const {data} = (await axios.get(`${URL}/?api_key=${YOUR_API_KEY}`))
+           
+            const apiTemperaments = data.map((data) => data.temperament);
+            
+            const apiTemperamentsClean = new Set(apiTemperaments.join().replace(/\s/g, "")
+            .split(",").sort()
+            )
+            
+            const temperamentsDB = []
+            for(const i of apiTemperamentsClean){
+                if(i !== undefined && i !== ""){
+                    const responseDB = await Temperament.findOrCreate({where:{name: i}})
+                    if(responseDB) temperamentsDB.push(responseDB)
+                }
+            };             
+            return res.status(200).json(temperamentsDB)
+        } 
+
         else{
-            throw Error("Información no disponible") //los temperamentos deben ser buscados en la API y guardados en la DB para su posterior consulta. PENDIENTE
-        };
-            // if((await Temperaments.findAll()).length !== 0) return res.status(200).json(await Temperaments.findAll())
-            // else { throw Error("Información no disponible")
-            // }
-                
+            throw Error("Información no disponible") 
+        };               
     } catch (error) {
-        return res.status(500).send(Error.message)
+        return res.status(500).send(error.message)
     };
 };
 
