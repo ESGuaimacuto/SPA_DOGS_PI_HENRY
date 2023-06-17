@@ -1,0 +1,20 @@
+/* .LandingPage{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  flex-wrap: wrap;
+  padding: 20px;
+  border: solid rgb(red, green, blue) 10px;
+  margin:auto;
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 11px;
+  text-align:center;
+} */
+/* body{
+  background-image: url('../../components/assets/Perro\ robot.jpg');
+  background-size: 1800px 1100px;
+  width: auto;
+
+  background-position: center;
+} */

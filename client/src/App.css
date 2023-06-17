@@ -1,9 +1,40 @@
-.App {
+/* .App{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  flex-wrap: wrap;
+  padding: 20px;
+  border: solid rgb(red, green, blue) 10px;
+  margin:auto;
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 11px;
+  text-align:center;
+}
+
+body{
+  background-image: url('../src/components/assets/Video\ perro1.mp4');
+  background-size: auto;
+  width: auto;
+  
+
+ 
+background-position: center center;
+
+} */
+
+
+
+
+
+
+
+/* .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 1vmin;
   pointer-events: none;
 }
 
@@ -35,4 +66,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

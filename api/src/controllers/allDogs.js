@@ -3,6 +3,7 @@ const axios = require("axios")
 const {YOUR_API_KEY , URL} = process.env
 const cleanArray = require("../controllers/clean")
 
+//Solicitud DB
 const allDogs = async (req, res) => { 
     console.log("Entre al controller de todos los perros");
     try {
@@ -22,9 +23,11 @@ const allDogs = async (req, res) => {
                   through: {
                     attributes: [],
                 },
-        },
-        }); 
-        //Solicitud DB            
+            },
+        });
+        console.log(responseDB); 
+        
+        //Solicitud API            
         const apiDogsRaw = (await axios.get(`${URL}/?api_key=${YOUR_API_KEY}`)).data; 
         const apiDogs = cleanArray(apiDogsRaw)   
         return res.status(200).json([...responseDB, ...apiDogs].flat())
