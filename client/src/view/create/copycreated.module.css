@@ -1,0 +1,157 @@
+.container{
+    
+    width: 100%;
+    height: 100vh;
+  
+    backdrop-filter: blur(1px);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 250ms ease;
+}
+.close{
+    transform: scale(0);
+}
+
+.form{
+    background-color: #820923;
+    border: 5px solid #FCBA04;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 1.5rem 2.5rem;
+    border-radius: 5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
+}
+
+.title{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.item{
+    display: flex;
+    flex-direction:column;
+    gap: 0.3em;
+    background-color: blue;
+}
+.label {
+    font-size: 1rem;
+    padding-left: 1em;   
+}
+
+.input{
+    padding: 0.3em 0.5em;
+    font-size: 0.7;
+    font-weight: 500;
+}
+
+.btnDog {
+    background-color: #0D1321;
+    color: white;
+    border: none;
+    padding: 10px 15px 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #FCBA04;
+    transition: all 0.2s ease-in-out;
+    margin-left: 90px;
+  }
+  
+  .btnDog:hover {
+    background-color: #FCBA04;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px #0D1321;
+    transform: translateY(-2px);
+  }
+  .btnDog2 {
+    background-color: #0D1321;
+    color: white;
+    border: none;
+    padding: 10px 15px 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #FCBA04;
+    transition: all 0.2s ease-in-out;
+    margin-left: 100px;
+    
+  }
+  
+  .btnDog2:hover {
+    background-color: #FCBA04;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px #0D1321;
+    transform: translateY(-2px);
+  }
+
+.x {
+    background-color: #0D1321;
+    color: white;
+    border: none;
+    padding: 10px 15px 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #FCBA04;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .x:hover {
+    background-color: #FCBA04;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px #0D1321;
+    transform: translateY(-2px);
+  }
+  .allSelecction {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .allSelecction li {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5em;
+    padding: 0.2em 0.5em;
+    background-color: #820923;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px #0D1321;
+  }
+  
+  .allSelecction li p {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+  .prueba{
+    margin-top: 10px;
+    margin-left: 100px;
+  }
+  

@@ -1,20 +1,45 @@
-/* .LandingPage{
-  display: flex;
-  flex-direction: row;
-  justify-content: center; 
-  flex-wrap: wrap;
-  padding: 20px;
-  border: solid rgb(red, green, blue) 10px;
-  margin:auto;
-  margin-top: 30px;
-  margin-left: 30px;
-  padding: 11px;
-  text-align:center;
-} */
-/* body{
-  background-image: url('../../components/assets/Perro\ robot.jpg');
-  background-size: 1800px 1100px;
-  width: auto;
+.cuerpoLanding{
+  text-align: center;
+  ;
+}
 
-  background-position: center;
-} */
+.landing {
+    font-family: 'Lucida Sans';
+    font-size: 3em;
+    font-weight: 1000;
+    color: #0D1321;
+    text-align: center;
+    text-transform: uppercase;
+} 
+
+.boton {
+  background-color: #820923;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  box-shadow: 2px 2px 10px #0D1321;
+  transition: all 0.2s ease-in-out;
+  margin-top: 15px;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.link {
+  color: #0D1321;
+  align-items: center;
+}
+
+body{
+  background-image: url('../../components/assets/Perro\ robot.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  align-items: center;
+  align-content: center;
+}

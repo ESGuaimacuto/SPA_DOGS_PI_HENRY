@@ -1,0 +1,19 @@
+.Cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    flex-wrap: wrap;
+    padding: 20px;
+    border: solid black 100px; 
+    margin:auto;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 11px;
+    text-align:center;
+  } 
+  body{
+      background-color: blue;
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: auto;
+    }

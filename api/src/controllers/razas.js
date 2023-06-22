@@ -1,4 +1,4 @@
-const {Dogs} = require("../db")
+const {Dog} = require("../db")
 const axios = require("axios")
 const {YOUR_API_KEY, URL} = process.env
 
@@ -24,7 +24,7 @@ const {YOUR_API_KEY, URL} = process.env
                 temperament
             };
             
-          const responseDB = await Dogs.findAll({where:{id}},{
+          const responseDB = await Dog.findAll({where:{id}},{
                 attributes: [
                     "id",
                     "name",

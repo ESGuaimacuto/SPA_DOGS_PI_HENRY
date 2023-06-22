@@ -8,7 +8,7 @@ SEARCH_BY_NAME,
 GET_TEMPERAMENTS,
 FILTER_BY_CREATED,
 FILTER_BY_TEMPERAMENT,
-POST_DOG,
+POST_DOG
 } from "./actionTypes"
 const LocalHost = 'http://localhost:3001/dogs'
 
@@ -40,10 +40,11 @@ export const orderByWeight = (payload)=>{
         }     
     };
 
-export const dogsDetail = (id)=>{
+export const dogsDetail = (id) => {
     try {
         return async function(dispatch){
-            let resDogsDetail = await  axios.get(`${LocalHost}/${id}`)
+            let resDogsDetail = await axios.get(`${LocalHost}/${id}`)
+            console.log(resDogsDetail);
             return dispatch({
                 type: DOGS_DETAIL,
                 payload: resDogsDetail.data
@@ -57,7 +58,7 @@ export const dogsDetail = (id)=>{
 export const searchByName = (name)=>{
     try {
         return async function(dispatch){
-            let resSearchByName = await  axios.get(`${LocalHost}/name?name=${name}`)
+            let resSearchByName = await axios.get(`${LocalHost}/name?name=${name}`)
             return dispatch({
                 type: SEARCH_BY_NAME,
                 payload: resSearchByName.data
@@ -89,11 +90,11 @@ export const postDog = ({name, image, height, weight, life_span, temperament})=>
             let resPostDog = await axios.post(`${LocalHost}`, {
                 name,
                 image,
-                height: + "kg",
-                weight: + "cm",
-                life_span: + "years",
+                height,
+                weight,
+                life_span,
                 temperament})
-            
+                                
             alert("Created succesfull")
             return dispatch({
                 type: POST_DOG,

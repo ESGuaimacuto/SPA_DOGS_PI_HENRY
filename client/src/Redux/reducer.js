@@ -1,10 +1,11 @@
-import { GET_DOGS, ORDER_BY_NAME, ORDER_BY_WEIGHT, DOGS_DETAIL, SEARCH_BY_NAME, SEARACH_BY_ID, FILTER_BY_CREATED, FILTER_BY_TEMPERAMENT, POST_DOG, CREATED_DOG, GET_TEMPERAMENTS } from "./actionTypes";
+import { GET_DOGS, ORDER_BY_NAME, ORDER_BY_WEIGHT, DOGS_DETAIL, SEARCH_BY_NAME, FILTER_BY_CREATED, FILTER_BY_TEMPERAMENT, POST_DOG, GET_TEMPERAMENTS} from "./actionTypes";
 
 const initialState = {
     temperaments: [],
     dogs: [], 
     detail: [],
     respaldoDogs: [],
+    currentPage: 1
 };
 
 const reducer = (state = initialState, action) => {
@@ -52,15 +53,14 @@ const reducer = (state = initialState, action) => {
         case DOGS_DETAIL:
             return {
                 ...state,
-                detaul: action.payload
+                detail: action.payload
             }
 
         case SEARCH_BY_NAME:
-
             return{
-                ...state
+                ...state,
+                dogs: action.payload
             }
-
 
         case GET_TEMPERAMENTS:
             return {
@@ -69,24 +69,67 @@ const reducer = (state = initialState, action) => {
             }
 
         case POST_DOG:
-
             return {
                 ...state,
-
             }
 
         case FILTER_BY_CREATED:
-
+        const prueba = state.respaldoDogs;
+            let createFilter;
+            if (action.payload === 'ALL') {
+                createFilter = prueba;
+            } else {
+                createFilter =
+                action.payload === 'true'
+                    ? prueba.filter((e) => e.created)
+                    : prueba.filter((e) => !e.created);
+            }
             return {
                 ...state,
+                dogs: createFilter,
+            };
 
-            }
 
+
+            // if(action.payload === "false"){
+            //     console.log("Entre a la action de los traidos de la API")
+            //     const API = state.dogs.filter(element => element.created === action.payload)
+            //     console.log(API);
+            //     let byAPI = API
+            //     return {
+            //         ...state,
+            //         dogs: byAPI
+            //     }  
+            // }
+            // if(action.payload === "true"){
+            //     console.log("Entre a la action de los creados");
+            //     const creados = state.dogs.filter(element => element.created === action.payload)
+            //     let byCreated = creados
+            //     if(byCreated.length === 0) return alert("No existen perros Creados")
+            //     console.log(byCreated);
+            //     return {
+            //         ...state,
+            //         dogs: byCreated
+            //     }
+            // }else{
+            //     console.log("Tengo que devolver todos los perros");
+            //     return {
+            //         ...state,
+            //         dogs: state.respaldoDogs
+            //     }
+            // }
+
+            
         case FILTER_BY_TEMPERAMENT:
-
+            let allDogs = state.dogs;
+            let filterTemp = 
+            action.payload === "ALL"
+            ? allDogs 
+            : allDogs.filter((dogi) => dogi.temperament?.includes(action.payload))
+            if(filterTemp.length === 0) filterTemp = []
             return{
                 ...state,
-
+                dogs: filterTemp
             }
 
         default:
