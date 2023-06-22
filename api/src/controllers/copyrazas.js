@@ -12,7 +12,7 @@ const {YOUR_API_KEY, URL} = process.env
         //if() return res.status(400).send("Número del indentificador incorrecto o inexistente")
         if(id) {
             const {name, height, weight, life_span, image, temperament} = (await axios.get(`${URL}/${id}`)).data;
-            console.log((await axios.get(`${URL}/${id}`)).data);
+            console.log("REalizada la solicitud a la API");
             const razasAPI = {
                 id,
                 name,
