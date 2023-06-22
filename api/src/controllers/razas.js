@@ -12,7 +12,7 @@ const {YOUR_API_KEY, URL} = process.env
         //if() return res.status(400).send("Número del indentificador incorrecto o inexistente")
         if(id) {
             const {name, height, weight, life_span, image, temperament} = (await axios.get(`${URL}/${id}`)).data;
-            
+            console.log("REalizada la solicitud a la API");
             const razasAPI = {
                 id,
                 name,
@@ -23,8 +23,8 @@ const {YOUR_API_KEY, URL} = process.env
                 created: false, 
                 temperament
             };
-            
-          const responseDB = await Dog.findAll({where:{id}},{
+            //console.log(razasAPI);
+            const responseDB = await Dog.findAll({where:{id}},{
                 attributes: [
                     "id",
                     "name",
@@ -37,6 +37,7 @@ const {YOUR_API_KEY, URL} = process.env
                 ]
             }
             );
+            
             return res.status(200).json([razasAPI, ...responseDB])
         };      
 
